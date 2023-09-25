@@ -27,6 +27,7 @@ struct bagItemView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     Text("\(productName)")
+                        .bold()
                         .fontWeight(.medium)
                         .foregroundColor(Color.theme.accent)
                         .frame(height: 20, alignment: .bottomLeading)
@@ -34,7 +35,6 @@ struct bagItemView: View {
                     // Hstack in upper half info
                     HStack(spacing: 0) {
                         Text("$7.00")
-                        .fontWeight(.medium)
                         .foregroundColor(Color.theme.primaryPurple)
                         Image("refresh-cw-05")
                         .frame(height: 24)
@@ -120,8 +120,8 @@ struct bagItemView: View {
             .padding(0)
             .frame(alignment: .topLeading)
             
-        }.padding()
-        .background(Color.theme.backgroundColor)
+        }
+        .background(Color.theme.AccentBW)
         .cornerRadius(8)
         .overlay(
           RoundedRectangle(cornerRadius: 8)

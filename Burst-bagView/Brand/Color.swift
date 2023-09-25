@@ -20,4 +20,5 @@ struct colorTheme {
     let backgroundColor = Color("backgroundColor")
     let grey = Color("grey")
     let purple = Color("purple")
+    let AccentBW = Color("AccentBW")
 }
