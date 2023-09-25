@@ -31,6 +31,17 @@ struct ContentView: View {
             }
             .padding()
         }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            VStack {
+                addBtn
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: 50)
+            // The background will extend automatically to the edge
+            .background(Color.theme.backgroundColor)
+            
+        }
+        
     }
 }
 
@@ -65,4 +76,17 @@ extension ContentView {
             
         }
     }
+}
+
+
+private var addBtn: some View {
+    Button(action: {},label: {
+        Text("Send 3 recommendations").font(.headline)
+            .fontWeight(.bold)
+            .foregroundColor(Color.theme.purple)
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(Color.theme.accentYellow)
+            .cornerRadius(10)
+    }).padding(20)
 }

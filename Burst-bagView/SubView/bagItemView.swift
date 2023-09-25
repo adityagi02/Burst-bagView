@@ -11,22 +11,33 @@ struct bagItemView: View {
     let productName : String
     let selectedColor : String
     let itemQuantity : Int
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-            Image("image-mask")
+        // Complete card
+        HStack(alignment: .center) {
+            
+            // Image
+            Image(colorScheme == .dark ?  "image-mask-dark" : "image-mask")
+            
+            // Item info
             VStack(alignment: .leading, spacing: 7) {
+                
+                // Upper Half info
                 VStack(alignment: .leading, spacing: 0) {
+                    
                     Text("\(productName)")
                         .fontWeight(.medium)
                         .foregroundColor(Color.theme.accent)
                         .frame(height: 20, alignment: .bottomLeading)
+                    
+                    // Hstack in upper half info
                     HStack(spacing: 0) {
                         Text("$7.00")
                         .fontWeight(.medium)
                         .foregroundColor(Color.theme.primaryPurple)
                         Image("refresh-cw-05")
-                        .frame(width: 24, height: 24)
+                        .frame(height: 24)
                         Text("Refill $4/12 weeks")
                             .font(.system(size: 9))
                           .foregroundColor(Color.theme.accent)
@@ -35,27 +46,28 @@ struct bagItemView: View {
                     .frame(height: 19, alignment: .leading)
                 }
                 .padding(0)
-                .frame(width: 178, alignment: .topLeading)
+                .frame(alignment: .topLeading)
                 
+                
+                Divider()
                 HStack(alignment: .center, spacing: 7.73557) {
+                    
                     HStack(spacing: 0){
+                        
                         Text("Color: ")
                             .font(.system(size: 12))
                             .bold()
                           .foregroundColor(Color.theme.accent)
+                        
                         Text("\(selectedColor)")
                             .font(.system(size: 12))
                           .foregroundColor(Color.theme.accent)
                     }
                 }
                 .padding(.horizontal, 0)
-                .padding(.vertical, 8)
-                .frame(width: 179, alignment: .leading)
-                .overlay(
-                  Rectangle()
-                    .inset(by: 0.25)
-                    .stroke(Color.grey, lineWidth: 0.5)
-                )
+                .frame(alignment: .leading)
+                
+                Divider()
                 
                 HStack(alignment: .top, spacing: 8) {
                     HStack(alignment: .center, spacing: 4) {
@@ -101,15 +113,14 @@ struct bagItemView: View {
                     
                 }
                 .padding(0)
-                .frame(width: 179, alignment: .topLeading)
+                .frame(alignment: .topLeading)
                 
                 
             }
             .padding(0)
-            .frame(width: 179, alignment: .topLeading)
+            .frame(alignment: .topLeading)
             
-        }
-        .padding()
+        }.padding()
         .background(Color.theme.backgroundColor)
         .cornerRadius(8)
         .overlay(
@@ -117,7 +128,6 @@ struct bagItemView: View {
             .inset(by: 0.5)
             .stroke(Color.theme.grey)
         )
-        
     }
 }
 
