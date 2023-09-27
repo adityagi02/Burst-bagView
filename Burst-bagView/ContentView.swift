@@ -45,11 +45,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView(numberOfItems: 3)
-}
-
-
 
 extension ContentView {
     var topView : some View {
@@ -68,7 +63,7 @@ extension ContentView {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
-                    .background(Color(Color.theme.backgroundColor))// Adjust the size as needed
+                    .background(Color.theme.backgroundColor)// Adjust the size as needed
             }
             
             

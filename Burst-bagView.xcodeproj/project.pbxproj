@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC3609742AC4181700FE7FAB /* productListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3609732AC4181700FE7FAB /* productListView.swift */; };
 		AC4DFB9A2ABD951000E32C3B /* Burst_bagViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DFB992ABD951000E32C3B /* Burst_bagViewApp.swift */; };
 		AC4DFB9C2ABD951000E32C3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DFB9B2ABD951000E32C3B /* ContentView.swift */; };
 		AC4DFB9E2ABD951300E32C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4DFB9D2ABD951300E32C3B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC3609732AC4181700FE7FAB /* productListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productListView.swift; sourceTree = "<group>"; };
 		AC4DFB962ABD951000E32C3B /* Burst-bagView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burst-bagView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4DFB992ABD951000E32C3B /* Burst_bagViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Burst_bagViewApp.swift; sourceTree = "<group>"; };
 		AC4DFB9B2ABD951000E32C3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4DFBAB2ABDB3A900E32C3B /* bagItemView.swift */,
+				AC3609732AC4181700FE7FAB /* productListView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4DFBAC2ABDB3A900E32C3B /* bagItemView.swift in Sources */,
+				AC3609742AC4181700FE7FAB /* productListView.swift in Sources */,
 				AC4DFB9C2ABD951000E32C3B /* ContentView.swift in Sources */,
 				AC4DFB9A2ABD951000E32C3B /* Burst_bagViewApp.swift in Sources */,
 				AC4DFBA92ABD9A7100E32C3B /* Color.swift in Sources */,
@@ -303,6 +307,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +336,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
