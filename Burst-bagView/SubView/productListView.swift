@@ -19,14 +19,25 @@ struct ProductListView: View {
                 Text("My Favorites").tag(2)
             }).pickerStyle(.segmented).padding(.horizontal)
             
-            productView
+            HStack{
+                ProductListBannerView().productView
+            }.padding()
             
             if (allProducts == 1) {
                 productCategoryList().allProductsView
             } else {
-                productCategoryList().allProductsView
+                ContentView(numberOfItems: 12)
             }
                 
+        }.safeAreaInset(edge: .bottom, spacing: 0) {
+            VStack {
+                addAllBtn
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: 130)
+            // The background will extend automatically to the edge
+            .background(Color.theme.backgroundColor)
+            
         }
             .navigationBarHidden(false)
             .navigationTitle("Hurrayyyy")
@@ -61,13 +72,15 @@ struct ProductListView_Previews: PreviewProvider {
 
 struct productCategoryList {
     let categoryName = "Two"
+    let categoriesNumber = 4
     var allProductsView : some View {
         
             VStack{
                 ScrollView{
-                    categoriesView
-                    Divider()
-                    categoriesView
+                    ForEach (0..<categoriesNumber) { _ in
+                        categoriesView
+                        Divider()
+                    }
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -102,12 +115,11 @@ extension productCategoryList {
                 HStack(alignment: .center) {
                     // Display xs/Medium
                     Text("Category \(categoryName)")
-                        .font(.largeTitle)
+                        .font(.title)
                         .bold()
-                        .padding(.leading)
+                        .frame(alignment: .topLeading)
                       .foregroundColor(Color.theme.accent)
                     Spacer()
-                    
                 }
                 .padding(.horizontal)
                 
@@ -120,7 +132,6 @@ extension productCategoryList {
                         bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
                         bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
                 }
-                
             }
             .padding(.bottom, 10)
         }
@@ -128,16 +139,17 @@ extension productCategoryList {
 }
 
 
-extension ProductListView {
+struct ProductListBannerView {
     var productView : some View {
-        VStack(alignment: .leading){
+        VStack(){
             
             GeometryReader { geo in
                 VStack(alignment: .leading){
-                    Text("Promo Banner")
-                        .font(Font.custom("Boing", size: 15))
-                        .foregroundColor(.white)
-                        .frame(width: 311, alignment: .topLeading)
+                    HStack{
+                        Text("Promo Banner")
+                            .foregroundColor(.white)
+                            .frame(alignment: .topLeading)
+                    }
                     Text("Lorem ipsum dolor sit amet consectetur.")
                         .font(
                             Font.custom("Boing", size: 28)
@@ -145,18 +157,19 @@ extension ProductListView {
                         )
                         .kerning(0.34)
                         .foregroundColor(.white)
-                        .frame(width : geo.size.width * 0.8, height : 68, alignment: .topLeading)
+                        .frame(width : geo.size.width * 0.8, alignment: .topLeading)
                     Spacer(minLength: 46)
                     
                     HStack(alignment: .center, spacing: 4) {
                         // Text sm/Regular
                         Button("View this deal", action: {
                             
-                        }).font(Font.custom("Boing", size: 14))
+                        }).frame(height: 20)
+                        .font(Font.custom("Boing", size: 14))
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color(red: 0.21, green: 0.25, blue: 0.33))
                         Image("arrow-right")
-                            .frame(width: 12, height: 12)
+                            .frame(width: 16, height: 16)
                     }
                     .padding(.leading, 10)
                     .padding(.trailing, 6)
@@ -171,8 +184,8 @@ extension ProductListView {
             }
 
         }
-         .padding()
-        .frame(height: 190, alignment: .topLeading)
+        .padding()
+        .frame(height: 190)
         .background(Color(red: 0.22, green: 0, blue: 0.47))
         .cornerRadius(8)
         .shadow(color: Color(red: 0.06, green: 0.09, blue: 0.16).opacity(0.03), radius: 3, x: 0, y: 4)

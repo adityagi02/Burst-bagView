@@ -21,4 +21,6 @@ struct colorTheme {
     let grey = Color("grey")
     let purple = Color("purple")
     let AccentBW = Color("AccentBW")
+    let reverseAccentColor = Color("reverseAccentColor")
+    
 }

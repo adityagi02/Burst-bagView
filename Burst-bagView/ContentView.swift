@@ -27,7 +27,7 @@ struct ContentView: View {
                         bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
                         bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
                 }
-                
+
             }
             .padding()
         }
@@ -74,7 +74,7 @@ extension ContentView {
 }
 
 
-private var addBtn: some View {
+public var addBtn: some View {
     Button(action: {},label: {
         Text("Send 3 recommendations").font(.headline)
             .fontWeight(.bold)
@@ -85,3 +85,43 @@ private var addBtn: some View {
             .cornerRadius(10)
     }).padding(20)
 }
+
+public var addAllBtn: some View {
+    VStack{
+        Button(action: {},label: {
+            Text("+ Add All").font(.headline)
+                .fontWeight(.bold)
+                .foregroundColor(Color.theme.accent)
+                .frame(height: 55)
+                .frame(maxWidth: .infinity)
+                .background(Color.theme.reverseAccentColor)
+                .cornerRadius(10)
+                .overlay(
+                  RoundedRectangle(cornerRadius: 4)
+                    .inset(by: 0)
+                    .stroke(Color.black, lineWidth: 0.4)
+                )
+
+        }).padding(.top, 20)
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
+            .padding(.bottom, -10)
+        
+        Button(action: {},label: {
+            Text("Send 3 recommendations").font(.headline)
+                .fontWeight(.bold)
+                .foregroundColor(Color.theme.purple)
+                .frame(height: 55)
+                .frame(maxWidth: .infinity)
+                .background(Color.theme.accentYellow)
+                .cornerRadius(10)
+        }).padding()
+    }
+}
+//
+//
+//struct ContentView_Preview : PreviewProvider {
+//    static var previews: some View {
+//        ContentView(numberOfItems: 12)
+//    }
+//}
