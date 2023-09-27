@@ -28,7 +28,7 @@ struct ProductListView: View {
             } else {
                 ContentView(numberOfItems: 12)
             }
-                
+            
         }.safeAreaInset(edge: .bottom, spacing: 0) {
             VStack {
                 addAllBtn
@@ -39,33 +39,31 @@ struct ProductListView: View {
             .background(Color.theme.backgroundColor)
             
         }
-            .navigationBarHidden(false)
-            .navigationTitle("Hurrayyyy")
-            .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .principal, content: {
-//                    Text("Recommend Burst")
-//                        .font(.bold(17))
-//                       // .foregroundColor(.labelAsset)
-//                })
-//                ToolbarItem(placement: .navigationBarTrailing, content: {
-//                  //  Image(.shoppingCart)
-//                })
-//                ToolbarItem(placement: .navigationBarLeading, content: {
-//                    Image("Arrow")
-//                    .frame(width: 12, height: 20.5)
-//                    .background(Color(red: 0.22, green: 0, blue: 0.47))
-//                })
-//            }
+        .navigationBarHidden(false)
+        .navigationTitle("Hurrayyyy")
+        .navigationBarTitleDisplayMode(.inline)
+        //            .toolbar {
+        //                ToolbarItem(placement: .principal, content: {
+        //                    Text("Recommend Burst")
+        //                        .font(.bold(17))
+        //                       // .foregroundColor(.labelAsset)
+        //                })
+        //                ToolbarItem(placement: .navigationBarTrailing, content: {
+        //                  //  Image(.shoppingCart)
+        //                })
+        //                ToolbarItem(placement: .navigationBarLeading, content: {
+        //                    Image("Arrow")
+        //                    .frame(width: 12, height: 20.5)
+        //                    .background(Color(red: 0.22, green: 0, blue: 0.47))
+        //                })
+        //            }
         
     }
 }
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-//        NavigationView(content: {
-            ProductListView( categoryNumber: "One")
-//        })
+        ProductListView( categoryNumber: "One")
     }
 }
 
@@ -75,17 +73,17 @@ struct productCategoryList {
     let categoriesNumber = 4
     var allProductsView : some View {
         
-            VStack{
-                ScrollView{
-                    ForEach (0..<categoriesNumber) { _ in
-                        categoriesView
-                        Divider()
-                    }
+        VStack{
+            ScrollView{
+                ForEach (0..<categoriesNumber) { _ in
+                    categoriesView
+                    Divider()
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 8)
-                .padding(.bottom, 16)
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 16)
+        }
     }
 }
 
@@ -103,7 +101,7 @@ extension ProductListView {
 
 
 extension productCategoryList {
-
+    
     
     var categoriesView: some View {
         ZStack{
@@ -118,19 +116,19 @@ extension productCategoryList {
                         .font(.title)
                         .bold()
                         .frame(alignment: .topLeading)
-                      .foregroundColor(Color.theme.accent)
+                        .foregroundColor(Color.theme.accent)
                     Spacer()
                 }
                 .padding(.horizontal)
                 
                 
                 ScrollView {
-                        bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                        bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                        bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
-                        bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                        bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                        bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
                 }
             }
             .padding(.bottom, 10)
@@ -165,7 +163,7 @@ struct ProductListBannerView {
                         Button("View this deal", action: {
                             
                         }).frame(height: 20)
-                        .font(Font.custom("Boing", size: 14))
+                            .font(Font.custom("Boing", size: 14))
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color(red: 0.21, green: 0.25, blue: 0.33))
                         Image("arrow-right")
@@ -182,7 +180,7 @@ struct ProductListBannerView {
                 .padding(.top, 8)
                 
             }
-
+            
         }
         .padding()
         .frame(height: 190)

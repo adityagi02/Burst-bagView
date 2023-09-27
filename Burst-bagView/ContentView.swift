@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-   @State var numberOfItems: Int
+    @State var numberOfItems: Int
     
     var body: some View {
         ZStack{
@@ -20,14 +20,14 @@ struct ContentView: View {
                 topView
                 Spacer(minLength: 20)
                 ScrollView {
-                        bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                        bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                        bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
-                        bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                        bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                        bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
                 }
-
+                
             }
             .padding()
         }
@@ -65,10 +65,6 @@ extension ContentView {
                     .frame(width: 30, height: 30)
                     .background(Color.theme.backgroundColor)// Adjust the size as needed
             }
-            
-            
-            
-            
         }
     }
 }
@@ -97,11 +93,11 @@ public var addAllBtn: some View {
                 .background(Color.theme.reverseAccentColor)
                 .cornerRadius(10)
                 .overlay(
-                  RoundedRectangle(cornerRadius: 4)
-                    .inset(by: 0)
-                    .stroke(Color.black, lineWidth: 0.4)
+                    RoundedRectangle(cornerRadius: 4)
+                        .inset(by: 0)
+                        .stroke(Color.black, lineWidth: 0.4)
                 )
-
+            
         }).padding(.top, 20)
             .padding(.leading, 20)
             .padding(.trailing, 20)
@@ -118,10 +114,3 @@ public var addAllBtn: some View {
         }).padding()
     }
 }
-//
-//
-//struct ContentView_Preview : PreviewProvider {
-//    static var previews: some View {
-//        ContentView(numberOfItems: 12)
-//    }
-//}

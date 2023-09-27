@@ -35,12 +35,12 @@ struct bagItemView: View {
                     // Hstack in upper half info
                     HStack(spacing: 0) {
                         Text("$7.00")
-                        .foregroundColor(Color.theme.primaryPurple)
+                            .foregroundColor(Color.theme.primaryPurple)
                         Image("refresh-cw-05")
-                        .frame(height: 24)
+                            .frame(height: 24)
                         Text("Refill $4/12 weeks")
                             .font(.system(size: 9))
-                          .foregroundColor(Color.theme.accent)
+                            .foregroundColor(Color.theme.accent)
                     }
                     .padding(0)
                     .frame(height: 19, alignment: .leading)
@@ -57,11 +57,11 @@ struct bagItemView: View {
                         Text("Color: ")
                             .font(.system(size: 12))
                             .bold()
-                          .foregroundColor(Color.theme.accent)
+                            .foregroundColor(Color.theme.accent)
                         
                         Text("\(selectedColor)")
                             .font(.system(size: 12))
-                          .foregroundColor(Color.theme.accent)
+                            .foregroundColor(Color.theme.accent)
                     }
                 }
                 .padding(.horizontal, 0)
@@ -77,7 +77,7 @@ struct bagItemView: View {
                             .font(.system(size: 13))
                             .frame(width: 36)
                             .fontWeight(.medium)
-                          .foregroundColor(.black)
+                            .foregroundColor(.black)
                         Image(systemName: "plus")
                             .foregroundColor(.black)
                     }
@@ -86,9 +86,9 @@ struct bagItemView: View {
                     .background(Color.theme.grey)
                     .cornerRadius(4)
                     .overlay(
-                      RoundedRectangle(cornerRadius: 4)
-                        .inset(by: 0.5)
-                        .stroke((Color.theme.grey), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 4)
+                            .inset(by: 0.5)
+                            .stroke((Color.theme.grey), lineWidth: 1)
                     )
                     
                     HStack(alignment: .center, spacing: 8) {
@@ -105,9 +105,9 @@ struct bagItemView: View {
                     .cornerRadius(4)
                     .shadow(color: Color(red: 0.06, green: 0.09, blue: 0.16).opacity(0.05), radius: 1, x: 0, y: 1)
                     .overlay(
-                      RoundedRectangle(cornerRadius: 4)
-                        .inset(by: 0)
-                        .stroke(Color(red: 1, green: 0.79, blue: 0.29), lineWidth: 0)
+                        RoundedRectangle(cornerRadius: 4)
+                            .inset(by: 0)
+                            .stroke(Color(red: 1, green: 0.79, blue: 0.29), lineWidth: 0)
                     )
                     
                     
@@ -124,9 +124,9 @@ struct bagItemView: View {
         .background(Color.theme.AccentBW)
         .cornerRadius(8)
         .overlay(
-          RoundedRectangle(cornerRadius: 8)
-            .inset(by: 0.5)
-            .stroke(Color.theme.grey)
+            RoundedRectangle(cornerRadius: 8)
+                .inset(by: 0.5)
+                .stroke(Color.theme.grey)
         )
     }
 }
