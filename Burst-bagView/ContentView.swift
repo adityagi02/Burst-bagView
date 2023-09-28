@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var numberOfItems: Int
+//    @ObservedObject var dataDm : []
     
     var body: some View {
         ZStack{
@@ -20,12 +21,12 @@ struct ContentView: View {
                 topView
                 Spacer(minLength: 20)
                 ScrollView {
-                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
-                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+//                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+//                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+//                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+//                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+//                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+//                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
                 }
                 
             }

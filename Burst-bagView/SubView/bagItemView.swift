@@ -9,8 +9,15 @@ import SwiftUI
 
 struct bagItemView: View {
     let productName : String
+    let productPrice : String
+//    let retailPrice : String
+//    let color : String
+    let isFavorite : Bool
+//    let imageURL : String
     let selectedColor : String
-    let itemQuantity : Int
+    let appLongDescription : String
+    
+    var itemQuantity : Int = 4
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -34,7 +41,7 @@ struct bagItemView: View {
                     
                     // Hstack in upper half info
                     HStack(spacing: 0) {
-                        Text("$7.00")
+                        Text("\(productPrice)")
                             .foregroundColor(Color.theme.primaryPurple)
                         Image("refresh-cw-05")
                             .frame(height: 24)
@@ -135,7 +142,8 @@ struct bagItemView: View {
 
 struct bagItemView_Previews: PreviewProvider {
     static var previews: some View {
-        bagItemView(productName: "Product Name", selectedColor: "Blue", itemQuantity: 2)
+        bagItemView(productName: "Product", productPrice: "8.00", isFavorite: true, selectedColor: "", appLongDescription:  "isFavor   iteisFavorit eisFa vor  itei sF  avoriteis Favo   riteisFav  ori teisF avorite")
+  //      bagItemView(productName: "Product Name", selectedColor: "Blue", itemQuantity: 2)
             .scaledToFill()
     }
 }

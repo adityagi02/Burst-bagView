@@ -12,9 +12,12 @@ import SwiftUI
 
 @main
 struct Burst_bagViewApp: App {
+    @StateObject var vm = ProductViewDataModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(numberOfItems: 3)
+      //      ContentView(numberOfItems: 3)
+            ProductListView(vm: vm)
         }
     }
 }

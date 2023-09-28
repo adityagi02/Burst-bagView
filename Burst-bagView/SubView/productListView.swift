@@ -9,26 +9,41 @@ import SwiftUI
 
 struct ProductListView: View {
     @State var allProducts = 1
-    let categoryNumber: String
+    @ObservedObject var vm : ProductViewDataModel
+//    var pd = self.vm.productData
+//    let categoryNumber: String
+    
+//    var body: some View{
+//        VStack{
+//            ForEach(vm.productData) { data in
+//                Text("Category \(data.category ?? "Company Inc" )")
+//                    .foregroundColor(.black)
+//            }
+//        }
+//    }
+    
+    
     
     var body: some View {
         VStack {
-            
+
             Picker("Picker", selection: $allProducts, content: {
                 Text("All Products").tag(1)
                 Text("My Favorites").tag(2)
             }).pickerStyle(.segmented).padding(.horizontal)
-            
-            HStack{
-                ProductListBannerView().productView
-            }.padding()
-            
-            if (allProducts == 1) {
-                productCategoryList().allProductsView
-            } else {
-                ContentView(numberOfItems: 12)
+
+            ScrollView{
+                HStack{
+                    ProductListBannerView().productView
+                }.padding()
+
+                if (allProducts == 1) {
+                    productCategoryList(vm : vm)
+                } else {
+                    ContentView(numberOfItems: 12)
+                }
             }
-            
+
         }.safeAreaInset(edge: .bottom, spacing: 0) {
             VStack {
                 addAllBtn
@@ -37,46 +52,87 @@ struct ProductListView: View {
             .frame(maxWidth: .infinity, maxHeight: 130)
             // The background will extend automatically to the edge
             .background(Color.theme.backgroundColor)
-            
+
         }
         .navigationBarHidden(false)
         .navigationTitle("Hurrayyyy")
         .navigationBarTitleDisplayMode(.inline)
-        //            .toolbar {
-        //                ToolbarItem(placement: .principal, content: {
-        //                    Text("Recommend Burst")
-        //                        .font(.bold(17))
-        //                       // .foregroundColor(.labelAsset)
-        //                })
-        //                ToolbarItem(placement: .navigationBarTrailing, content: {
-        //                  //  Image(.shoppingCart)
-        //                })
-        //                ToolbarItem(placement: .navigationBarLeading, content: {
-        //                    Image("Arrow")
-        //                    .frame(width: 12, height: 20.5)
-        //                    .background(Color(red: 0.22, green: 0, blue: 0.47))
-        //                })
-        //            }
-        
+                    .toolbar {
+                        ToolbarItem(placement: .principal, content: {
+                            Text("Recommend Burst")
+                                .font(.body)
+                                .bold()
+                               // .foregroundColor(.labelAsset)
+                        })
+                        ToolbarItem(placement: .navigationBarTrailing, content: {
+                          //  Image(.shoppingCart)
+                        })
+                        ToolbarItem(placement: .navigationBarLeading, content: {
+                            Image("Arrow")
+                            .frame(width: 12, height: 20.5)
+                            .background(Color(red: 0.22, green: 0, blue: 0.47))
+                        })
+                    }
+
     }
 }
 
 struct ProductListView_Previews: PreviewProvider {
+    var vm = ProductViewDataModel()
+
     static var previews: some View {
-        ProductListView( categoryNumber: "One")
+        NavigationView(content: {
+            ProductListView(vm: dev.homeVM)
+        })
     }
 }
 
 
-struct productCategoryList {
+struct productCategoryList : View {
     let categoryName = "Two"
     let categoriesNumber = 4
-    var allProductsView : some View {
+    @ObservedObject var vm : ProductViewDataModel
+    
+    var body : some View {
         
         VStack{
             ScrollView{
-                ForEach (0..<categoriesNumber) { _ in
-                    categoriesView
+                
+                ForEach(vm.productData) { data in
+                    ZStack{
+                        Color.theme.backgroundColor
+                            .ignoresSafeArea()
+                        
+                        /// Content View
+                        VStack {
+                            HStack(alignment: .center) {
+                                // Display xs/Medium
+                                Text("Category \(data.category ?? "Company Inc")")
+                                    .font(.title)
+                                    .bold()
+                                    .frame(alignment: .topLeading)
+                                    .foregroundColor(Color.theme.accent)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            
+                            ForEach(data.categoryProductsData!) { product in
+                                bagItemView(productName: "\(product.productDetails![0].name ?? "Company Inc")",productPrice:"\(product.productDetails![0].price)", isFavorite: "\(product.productDetails![0].isFlavour)", selectedColor: "\(product.productDetails![0].color)", appLongDescription: "\(product.productDetails![0].appLongDescription)")
+//                                bagItemView(productName: "\(product.productDetails![0].name ?? "Company Inc")", productPrice: "\(product.productDetails![0].price ?? "Company Inc")", isFavorite: Bool, selectedColor: "\(product.productDetails![0].color ?? "Blue")", appLongDescription: "\(product.productDetails![0].appLongDescription ?? "Blue")")
+//                                bagItemView(productName: "\(product.productDetails![0].name ?? "Company Inc")", selectedColor: "\(product.productDetails![0].color ?? "Blue")", itemQuantity: 4)
+                            }
+            //                ScrollView {
+                                
+//                                bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+//                                bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+//                                bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
+//                                bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
+//                                bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
+            //                }
+                        }
+                        .padding(.bottom, 10)
+                    }
+                    
                     Divider()
                 }
             }
@@ -103,37 +159,9 @@ extension ProductListView {
 extension productCategoryList {
     
     
-    var categoriesView: some View {
-        ZStack{
-            Color.theme.backgroundColor
-                .ignoresSafeArea()
-            
-            /// Content View
-            VStack {
-                HStack(alignment: .center) {
-                    // Display xs/Medium
-                    Text("Category \(categoryName)")
-                        .font(.title)
-                        .bold()
-                        .frame(alignment: .topLeading)
-                        .foregroundColor(Color.theme.accent)
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                
-                ScrollView {
-                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
-                    bagItemView(productName: "Brush", selectedColor: "Red", itemQuantity: 4)
-                    bagItemView(productName: "ToothPaste", selectedColor: "Blue", itemQuantity: 2)
-                    bagItemView(productName: "Whitener", selectedColor: "White", itemQuantity: 10)
-                }
-            }
-            .padding(.bottom, 10)
-        }
-    }
+//    var categoriesView: some View {
+//
+//    }
 }
 
 
